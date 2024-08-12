@@ -24,8 +24,7 @@ public class SecurityConfig {
 				.authorizeHttpRequests((authorize) -> authorize
 						.requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
 				)
-				.csrf((csrf) -> csrf
-						.ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**"))
+				.csrf((csrf) -> csrf.disable() // csrf 보호 비활성화
 				)
 				.headers((headers) -> headers
 						.addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))

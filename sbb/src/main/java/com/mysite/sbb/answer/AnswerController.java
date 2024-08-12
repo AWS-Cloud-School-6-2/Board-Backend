@@ -21,7 +21,7 @@ import com.mysite.sbb.user.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
-@RequestMapping("/answer")
+@RequestMapping("/answers")
 @RequiredArgsConstructor
 @Controller
 public class AnswerController {

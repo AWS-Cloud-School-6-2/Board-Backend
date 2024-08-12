@@ -19,7 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/answer")
+@RequestMapping("/api/answers")
 public class AnswerRestController {
 
     private final QuestionService questionService;
@@ -27,7 +27,7 @@ public class AnswerRestController {
     private final UserService userService;
 
     @PreAuthorize("isAuthenticated()")
-    @PostMapping("/create/{id}")
+    @PostMapping("/{id}")
     public ResponseEntity<AnswerDTO> createAnswer(@PathVariable("id") Integer id, @Valid @RequestBody AnswerForm answerForm,
                                                   Principal principal) {
         Question question = this.questionService.getQuestion(id);
@@ -38,7 +38,7 @@ public class AnswerRestController {
     }
 
     @PreAuthorize("isAuthenticated()")
-    @PutMapping("/modify/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<AnswerDTO> answerModify(@PathVariable("id") Integer id, @Valid @RequestBody AnswerForm answerForm,
                                                   Principal principal) {
         Answer answer = this.answerService.getAnswer(id);
@@ -51,7 +51,7 @@ public class AnswerRestController {
     }
 
     @PreAuthorize("isAuthenticated()")
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> answerDelete(Principal principal, @PathVariable("id") Integer id) {
         Answer answer = this.answerService.getAnswer(id);
         if (!answer.getAuthor().getUsername().equals(principal.getName())) {
@@ -62,7 +62,7 @@ public class AnswerRestController {
     }
 
     @PreAuthorize("isAuthenticated()")
-    @PostMapping("/vote/{id}")
+    @PostMapping("/{id}/vote")
     public ResponseEntity<Void> answerVote(Principal principal, @PathVariable("id") Integer id) {
         Answer answer = this.answerService.getAnswer(id);
         SiteUser siteUser = this.userService.getUser(principal.getName());

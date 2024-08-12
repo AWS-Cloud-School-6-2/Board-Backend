@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.server.ResponseStatusException;
 
 @Slf4j
-@RequestMapping("/api/question")
+@RequestMapping("/api/questions")
 @RequiredArgsConstructor
 @RestController
 public class QuestionRestController {
@@ -29,60 +29,66 @@ public class QuestionRestController {
     private final QuestionService questionService;
     private final UserService userService;
 
-    @GetMapping("/list")
-    public ResponseEntity<Page<QuestionDTO>> list(@RequestParam(value = "page", defaultValue = "0") int page,
-                                                  @RequestParam(value = "kw", defaultValue = "") String kw) {
+    // 전체 질문 목록 조회
+    @GetMapping("/")
+    public ResponseEntity<Page<QuestionDTO>> getQuestionsWithSlash(@RequestParam(value = "page", defaultValue = "0") int page,
+                                                                   @RequestParam(value = "kw", defaultValue = "") String kw) {
         log.info("page:{}, kw:{}", page, kw);
         Page<Question> paging = this.questionService.getList(page, kw);
         Page<QuestionDTO> dtoPaging = paging.map(this::toDTO);
         return new ResponseEntity<>(dtoPaging, HttpStatus.OK);
     }
 
-    @GetMapping("/detail/{id}")
-    public ResponseEntity<QuestionDTO> detail(@PathVariable("id") Integer id) {
+
+    // 특정 질문 조회
+    @GetMapping("/{id}")
+    public ResponseEntity<QuestionDTO> getQuestion(@PathVariable("id") Integer id) {
         Question question = this.questionService.getQuestion(id);
         QuestionDTO questionDTO = toDTO(question);
         return new ResponseEntity<>(questionDTO, HttpStatus.OK);
     }
 
+    // 질문 생성
     @PreAuthorize("isAuthenticated()")
-    @PostMapping("/create")
-    public ResponseEntity<QuestionDTO> questionCreate(@Valid @RequestBody QuestionForm questionForm, Principal principal) {
+    @PostMapping("")
+    public ResponseEntity<QuestionDTO> createQuestion(@Valid @RequestBody QuestionForm questionForm, Principal principal) {
         SiteUser siteUser = this.userService.getUser(principal.getName());
         Question question = this.questionService.create(questionForm.getSubject(), questionForm.getContent(), siteUser);
         QuestionDTO questionDTO = toDTO(question);
         return new ResponseEntity<>(questionDTO, HttpStatus.CREATED);
     }
 
+    // 질문 수정
     @PreAuthorize("isAuthenticated()")
-    @PutMapping("/modify/{id}")
-    public ResponseEntity<QuestionDTO> questionModify(@Valid @RequestBody QuestionForm questionForm,
+    @PutMapping("/{id}")
+    public ResponseEntity<QuestionDTO> updateQuestion(@Valid @RequestBody QuestionForm questionForm,
                                                       Principal principal,
                                                       @PathVariable("id") Integer id) {
         Question question = this.questionService.getQuestion(id);
         if (!question.getAuthor().getUsername().equals(principal.getName())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "수정권한이 없습니다.");
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "수정 권한이 없습니다.");
         }
         this.questionService.modify(question, questionForm.getSubject(), questionForm.getContent());
         QuestionDTO questionDTO = toDTO(question);
         return new ResponseEntity<>(questionDTO, HttpStatus.OK);
     }
 
-
+    // 질문 삭제
     @PreAuthorize("isAuthenticated()")
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> questionDelete(Principal principal, @PathVariable("id") Integer id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteQuestion(Principal principal, @PathVariable("id") Integer id) {
         Question question = this.questionService.getQuestion(id);
         if (!question.getAuthor().getUsername().equals(principal.getName())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "삭제권한이 없습니다.");
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "삭제 권한이 없습니다.");
         }
         this.questionService.delete(question);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    // 질문에 대한 투표
     @PreAuthorize("isAuthenticated()")
-    @PostMapping("/vote/{id}")
-    public ResponseEntity<Void> questionVote(Principal principal, @PathVariable("id") Integer id) {
+    @PostMapping("/{id}/vote")
+    public ResponseEntity<Void> voteQuestion(Principal principal, @PathVariable("id") Integer id) {
         Question question = this.questionService.getQuestion(id);
         SiteUser siteUser = this.userService.getUser(principal.getName());
         this.questionService.vote(question, siteUser);
