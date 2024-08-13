@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e38b6a2a-15e0-4957-969c-48a9cbf2c3d6" name="console" url="http://34.136.121.242">
+        <fileTransfer rootFolder="/home/capstonedesign99" accessType="SFTP" host="34.136.121.242" port="22" sshConfigId="7f9262ec-6fcd-47a1-bdf3-7f08b778dcaa" sshConfig="capstonedesign99@34.136.121.242:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
