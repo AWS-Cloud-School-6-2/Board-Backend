@@ -302,3 +302,199 @@ Caused by: java.lang.ClassNotFoundException: com.mysite.sbb.DataNotFoundExceptio
 2024-08-14 09:47:49 - LiveReload server is running on port 35729
 2024-08-14 09:47:49 - Tomcat started on port 8080 (http) with context path '/'
 2024-08-14 09:47:49 - Started SbbApplication in 9.585 seconds (process running for 9.84)
+2024-08-14 13:48:48 - Starting SbbApplication using Java 17.0.12 with PID 11307 (/Users/jinsoo/Documents/GitHub/Board-Backend/sbb/build/classes/java/main started by jinsoo in /Users/jinsoo/Documents/GitHub/Board-Backend)
+2024-08-14 13:48:48 - Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-14 13:48:48 - No active profile set, falling back to 1 default profile: "default"
+2024-08-14 13:48:48 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-14 13:48:48 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-14 13:48:49 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-14 13:48:49 - Finished Spring Data repository scanning in 19 ms. Found 3 JPA repository interfaces.
+2024-08-14 13:48:49 - Tomcat initialized with port 8080 (http)
+2024-08-14 13:48:49 - Starting service [Tomcat]
+2024-08-14 13:48:49 - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-14 13:48:49 - Initializing Spring embedded WebApplicationContext
+2024-08-14 13:48:49 - Root WebApplicationContext: initialization completed in 608 ms
+2024-08-14 13:48:49 - HikariPool-1 - Starting...
+2024-08-14 13:48:51 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@74d789e
+2024-08-14 13:48:51 - HikariPool-1 - Start completed.
+2024-08-14 13:48:51 - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://34.122.116.151:3306/board?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul'
+2024-08-14 13:48:51 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-14 13:48:51 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-08-14 13:48:51 - HHH000026: Second-level cache disabled
+2024-08-14 13:48:51 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-14 13:48:52 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-14 13:48:52 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-14 13:48:57 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-14 13:48:57 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-08-14 13:48:58 - Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2024-08-14 13:48:58 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-14 13:48:58 - LiveReload server is running on port 35729
+2024-08-14 13:48:58 - Tomcat started on port 8080 (http) with context path '/'
+2024-08-14 13:48:58 - Started SbbApplication in 9.708 seconds (process running for 10.001)
+2024-08-14 14:02:27 - Restarting due to 27 class path changes (0 additions, 0 deletions, 27 modifications)
+2024-08-14 14:02:27 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-14 14:02:27 - HikariPool-1 - Shutdown initiated...
+2024-08-14 14:02:27 - HikariPool-1 - Shutdown completed.
+2024-08-14 14:02:27 - Starting SbbApplication using Java 17.0.12 with PID 11307 (/Users/jinsoo/Documents/GitHub/Board-Backend/sbb/build/classes/java/main started by jinsoo in /Users/jinsoo/Documents/GitHub/Board-Backend)
+2024-08-14 14:02:27 - Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-14 14:02:27 - No active profile set, falling back to 1 default profile: "default"
+2024-08-14 14:02:27 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-14 14:02:27 - Finished Spring Data repository scanning in 4 ms. Found 3 JPA repository interfaces.
+2024-08-14 14:02:27 - Tomcat initialized with port 8080 (http)
+2024-08-14 14:02:27 - Starting service [Tomcat]
+2024-08-14 14:02:27 - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-14 14:02:27 - Initializing Spring embedded WebApplicationContext
+2024-08-14 14:02:27 - Root WebApplicationContext: initialization completed in 172 ms
+2024-08-14 14:02:27 - HikariPool-2 - Starting...
+2024-08-14 14:02:29 - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@724c37dd
+2024-08-14 14:02:29 - HikariPool-2 - Start completed.
+2024-08-14 14:02:29 - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://34.122.116.151:3306/board?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul'
+2024-08-14 14:02:29 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-14 14:02:29 - HHH000026: Second-level cache disabled
+2024-08-14 14:02:29 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-14 14:02:29 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-14 14:02:29 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-14 14:02:35 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-14 14:02:35 - Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2024-08-14 14:02:35 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-14 14:02:36 - LiveReload server is running on port 35729
+2024-08-14 14:02:36 - Tomcat started on port 8080 (http) with context path '/'
+2024-08-14 14:02:36 - Started SbbApplication in 8.451 seconds (process running for 827.633)
+2024-08-14 14:02:36 - Condition evaluation unchanged
+2024-08-14 14:03:02 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-14 14:03:02 - HikariPool-2 - Shutdown initiated...
+2024-08-14 14:03:02 - HikariPool-2 - Shutdown completed.
+2024-08-14 14:03:04 - Starting SbbApplication using Java 17.0.12 with PID 11481 (/Users/jinsoo/Documents/GitHub/Board-Backend/sbb/build/classes/java/main started by jinsoo in /Users/jinsoo/Documents/GitHub/Board-Backend)
+2024-08-14 14:03:04 - Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-14 14:03:04 - No active profile set, falling back to 1 default profile: "default"
+2024-08-14 14:03:04 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-14 14:03:04 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-14 14:03:04 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-14 14:03:04 - Finished Spring Data repository scanning in 23 ms. Found 3 JPA repository interfaces.
+2024-08-14 14:03:04 - Tomcat initialized with port 8080 (http)
+2024-08-14 14:03:04 - Starting service [Tomcat]
+2024-08-14 14:03:04 - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-14 14:03:04 - Initializing Spring embedded WebApplicationContext
+2024-08-14 14:03:04 - Root WebApplicationContext: initialization completed in 614 ms
+2024-08-14 14:03:04 - HikariPool-1 - Starting...
+2024-08-14 14:03:06 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@704573e4
+2024-08-14 14:03:06 - HikariPool-1 - Start completed.
+2024-08-14 14:03:07 - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://34.122.116.151:3306/board?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul'
+2024-08-14 14:03:07 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-14 14:03:07 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-08-14 14:03:07 - HHH000026: Second-level cache disabled
+2024-08-14 14:03:07 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-14 14:03:07 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-14 14:03:08 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-14 14:03:13 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-14 14:03:13 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-08-14 14:03:14 - Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2024-08-14 14:03:14 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-14 14:03:14 - LiveReload server is running on port 35729
+2024-08-14 14:03:14 - Tomcat started on port 8080 (http) with context path '/'
+2024-08-14 14:03:14 - Started SbbApplication in 10.611 seconds (process running for 10.849)
+2024-08-14 14:41:56 - Restarting due to 27 class path changes (0 additions, 0 deletions, 27 modifications)
+2024-08-14 14:41:56 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-14 14:41:56 - HikariPool-1 - Shutdown initiated...
+2024-08-14 14:41:56 - HikariPool-1 - Shutdown completed.
+2024-08-14 14:41:56 - Starting SbbApplication using Java 17.0.12 with PID 11481 (/Users/jinsoo/Documents/GitHub/Board-Backend/sbb/build/classes/java/main started by jinsoo in /Users/jinsoo/Documents/GitHub/Board-Backend)
+2024-08-14 14:41:56 - Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-14 14:41:56 - No active profile set, falling back to 1 default profile: "default"
+2024-08-14 14:41:57 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-14 14:41:57 - Finished Spring Data repository scanning in 4 ms. Found 3 JPA repository interfaces.
+2024-08-14 14:41:57 - Tomcat initialized with port 8080 (http)
+2024-08-14 14:41:57 - Starting service [Tomcat]
+2024-08-14 14:41:57 - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-14 14:41:57 - Initializing Spring embedded WebApplicationContext
+2024-08-14 14:41:57 - Root WebApplicationContext: initialization completed in 183 ms
+2024-08-14 14:41:57 - HikariPool-2 - Starting...
+2024-08-14 14:41:59 - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@784593b7
+2024-08-14 14:41:59 - HikariPool-2 - Start completed.
+2024-08-14 14:41:59 - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://34.122.116.151:3306/board?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul'
+2024-08-14 14:41:59 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-14 14:41:59 - HHH000026: Second-level cache disabled
+2024-08-14 14:41:59 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-14 14:41:59 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-14 14:41:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-14 14:42:05 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-14 14:42:05 - Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2024-08-14 14:42:05 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-14 14:42:05 - LiveReload server is running on port 35729
+2024-08-14 14:42:05 - Tomcat started on port 8080 (http) with context path '/'
+2024-08-14 14:42:05 - Started SbbApplication in 8.347 seconds (process running for 2341.645)
+2024-08-14 14:42:05 - Condition evaluation unchanged
+2024-08-14 14:42:41 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-08-14 14:42:41 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-14 14:42:41 - HikariPool-2 - Shutdown initiated...
+2024-08-14 14:42:41 - HikariPool-2 - Shutdown completed.
+2024-08-14 14:42:41 - Starting SbbApplication using Java 17.0.12 with PID 11481 (/Users/jinsoo/Documents/GitHub/Board-Backend/sbb/build/classes/java/main started by jinsoo in /Users/jinsoo/Documents/GitHub/Board-Backend)
+2024-08-14 14:42:41 - Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-14 14:42:41 - No active profile set, falling back to 1 default profile: "default"
+2024-08-14 14:42:41 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-14 14:42:41 - Finished Spring Data repository scanning in 3 ms. Found 3 JPA repository interfaces.
+2024-08-14 14:42:41 - Tomcat initialized with port 8080 (http)
+2024-08-14 14:42:41 - Starting service [Tomcat]
+2024-08-14 14:42:41 - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-14 14:42:41 - Initializing Spring embedded WebApplicationContext
+2024-08-14 14:42:41 - Root WebApplicationContext: initialization completed in 160 ms
+2024-08-14 14:42:41 - HikariPool-3 - Starting...
+2024-08-14 14:42:43 - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5b19d3c3
+2024-08-14 14:42:43 - HikariPool-3 - Start completed.
+2024-08-14 14:42:43 - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://34.122.116.151:3306/board?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul'
+2024-08-14 14:42:43 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-14 14:42:43 - HHH000026: Second-level cache disabled
+2024-08-14 14:42:43 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-14 14:42:43 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-14 14:42:43 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-14 14:42:48 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-14 14:42:48 - Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2024-08-14 14:42:48 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-14 14:42:48 - LiveReload server is running on port 35729
+2024-08-14 14:42:48 - Tomcat started on port 8080 (http) with context path '/'
+2024-08-14 14:42:48 - Started SbbApplication in 7.71 seconds (process running for 2385.253)
+2024-08-14 14:42:48 - Condition evaluation unchanged
+2024-08-14 14:45:37 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-14 14:45:37 - Initializing Servlet 'dispatcherServlet'
+2024-08-14 14:45:37 - Completed initialization in 1 ms
+2024-08-14 14:45:37 - No mapping for GET /api
+2024-08-14 14:45:37 - No endpoint GET /api.
+2024-08-14 14:45:37 - No mapping for GET /apis
+2024-08-14 14:45:37 - No endpoint GET /apis.
+2024-08-14 14:46:24 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-14 14:46:24 - HikariPool-3 - Shutdown initiated...
+2024-08-14 14:46:24 - HikariPool-3 - Shutdown completed.
+2024-08-14 14:46:34 - Starting SbbApplication using Java 17.0.12 with PID 12183 (/Users/jinsoo/Documents/GitHub/Board-Backend/sbb/build/classes/java/main started by jinsoo in /Users/jinsoo/Documents/GitHub/Board-Backend)
+2024-08-14 14:46:34 - Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-14 14:46:34 - No active profile set, falling back to 1 default profile: "default"
+2024-08-14 14:46:34 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-14 14:46:34 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-14 14:46:34 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-14 14:46:34 - Finished Spring Data repository scanning in 21 ms. Found 3 JPA repository interfaces.
+2024-08-14 14:46:35 - Tomcat initialized with port 8080 (http)
+2024-08-14 14:46:35 - Starting service [Tomcat]
+2024-08-14 14:46:35 - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-14 14:46:35 - Initializing Spring embedded WebApplicationContext
+2024-08-14 14:46:35 - Root WebApplicationContext: initialization completed in 822 ms
+2024-08-14 14:46:35 - HikariPool-1 - Starting...
+2024-08-14 14:46:37 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7ab32363
+2024-08-14 14:46:37 - HikariPool-1 - Start completed.
+2024-08-14 14:46:37 - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://34.122.116.151:3306/board?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul'
+2024-08-14 14:46:37 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-14 14:46:37 - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-08-14 14:46:37 - HHH000026: Second-level cache disabled
+2024-08-14 14:46:37 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-14 14:46:38 - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-14 14:46:38 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-14 14:46:44 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-14 14:46:44 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-08-14 14:46:45 - Global AuthenticationManager configured with UserDetailsService bean with name userSecurityService
+2024-08-14 14:46:45 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-14 14:46:45 - Exposing 1 endpoint beneath base path '/actuator'
+2024-08-14 14:46:45 - LiveReload server is running on port 35729
+2024-08-14 14:46:45 - Tomcat started on port 8080 (http) with context path '/'
+2024-08-14 14:46:45 - Started SbbApplication in 11.896 seconds (process running for 12.159)
+2024-08-14 14:46:46 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-14 14:46:46 - Initializing Servlet 'dispatcherServlet'
+2024-08-14 14:46:46 - Completed initialization in 0 ms
+2024-08-14 14:46:48 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-14 14:46:48 - HikariPool-1 - Shutdown initiated...

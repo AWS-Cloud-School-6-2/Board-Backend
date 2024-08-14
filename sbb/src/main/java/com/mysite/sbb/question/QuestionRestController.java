@@ -1,7 +1,9 @@
 package com.mysite.sbb.question;
 
 import java.security.Principal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.mysite.sbb.answer.Answer;
@@ -94,17 +96,25 @@ public class QuestionRestController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    // 질문에 대한 투표
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/{id}/vote")
-    public ResponseEntity<Void> voteQuestion(Principal principal, @PathVariable("id") Integer id) {
+    public ResponseEntity<Map<String, Object>> voteQuestion(Principal principal, @PathVariable("id") Integer id) {
         log.info("Received request to vote on question with ID: {}", id);
         Question question = this.questionService.getQuestion(id);
         SiteUser siteUser = this.userService.getUser(principal.getName());
         this.questionService.vote(question, siteUser);
         log.info("Vote recorded successfully for question ID: {}", id);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
+
+        // 투표 수 계산
+        int voteCount = question.getVoter().size();
+
+        // JSON 응답을 위해 Map 사용
+        Map<String, Object> response = new HashMap<>();
+        response.put("voteCount", voteCount);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+
+}
 
     private QuestionDTO toDTO(Question question) {
         QuestionDTO dto = new QuestionDTO();
