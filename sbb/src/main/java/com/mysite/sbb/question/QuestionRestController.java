@@ -1,7 +1,9 @@
 package com.mysite.sbb.question;
 
 import java.security.Principal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.mysite.sbb.answer.Answer;
@@ -33,16 +35,17 @@ public class QuestionRestController {
     @GetMapping("/")
     public ResponseEntity<Page<QuestionDTO>> getQuestionsWithSlash(@RequestParam(value = "page", defaultValue = "0") int page,
                                                                    @RequestParam(value = "kw", defaultValue = "") String kw) {
-        log.info("page:{}, kw:{}", page, kw);
+        log.info("Received request to get questions - page: {}, kw: {}", page, kw);
         Page<Question> paging = this.questionService.getList(page, kw);
         Page<QuestionDTO> dtoPaging = paging.map(this::toDTO);
+        log.info("Returning {} questions", dtoPaging.getTotalElements());
         return new ResponseEntity<>(dtoPaging, HttpStatus.OK);
     }
-
 
     // 특정 질문 조회
     @GetMapping("/{id}")
     public ResponseEntity<QuestionDTO> getQuestion(@PathVariable("id") Integer id) {
+        log.info("Received request to get question with ID: {}", id);
         Question question = this.questionService.getQuestion(id);
         QuestionDTO questionDTO = toDTO(question);
         return new ResponseEntity<>(questionDTO, HttpStatus.OK);
@@ -52,9 +55,11 @@ public class QuestionRestController {
     @PreAuthorize("isAuthenticated()")
     @PostMapping("")
     public ResponseEntity<QuestionDTO> createQuestion(@Valid @RequestBody QuestionForm questionForm, Principal principal) {
+        log.info("Received request to create question - Subject: {}, Content: {}", questionForm.getSubject(), questionForm.getContent());
         SiteUser siteUser = this.userService.getUser(principal.getName());
         Question question = this.questionService.create(questionForm.getSubject(), questionForm.getContent(), siteUser);
         QuestionDTO questionDTO = toDTO(question);
+        log.info("Question created successfully with ID: {}", question.getId());
         return new ResponseEntity<>(questionDTO, HttpStatus.CREATED);
     }
 
@@ -64,12 +69,15 @@ public class QuestionRestController {
     public ResponseEntity<QuestionDTO> updateQuestion(@Valid @RequestBody QuestionForm questionForm,
                                                       Principal principal,
                                                       @PathVariable("id") Integer id) {
+        log.info("Received request to update question with ID: {}", id);
         Question question = this.questionService.getQuestion(id);
         if (!question.getAuthor().getUsername().equals(principal.getName())) {
+            log.warn("Unauthorized attempt to update question ID: {}", id);
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "수정 권한이 없습니다.");
         }
         this.questionService.modify(question, questionForm.getSubject(), questionForm.getContent());
         QuestionDTO questionDTO = toDTO(question);
+        log.info("Question updated successfully with ID: {}", id);
         return new ResponseEntity<>(questionDTO, HttpStatus.OK);
     }
 
@@ -77,23 +85,36 @@ public class QuestionRestController {
     @PreAuthorize("isAuthenticated()")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteQuestion(Principal principal, @PathVariable("id") Integer id) {
+        log.info("Received request to delete question with ID: {}", id);
         Question question = this.questionService.getQuestion(id);
         if (!question.getAuthor().getUsername().equals(principal.getName())) {
+            log.warn("Unauthorized attempt to delete question ID: {}", id);
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "삭제 권한이 없습니다.");
         }
         this.questionService.delete(question);
+        log.info("Question deleted successfully with ID: {}", id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    // 질문에 대한 투표
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/{id}/vote")
-    public ResponseEntity<Void> voteQuestion(Principal principal, @PathVariable("id") Integer id) {
+    public ResponseEntity<Map<String, Object>> voteQuestion(Principal principal, @PathVariable("id") Integer id) {
+        log.info("Received request to vote on question with ID: {}", id);
         Question question = this.questionService.getQuestion(id);
         SiteUser siteUser = this.userService.getUser(principal.getName());
         this.questionService.vote(question, siteUser);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
+        log.info("Vote recorded successfully for question ID: {}", id);
+
+        // 투표 수 계산
+        int voteCount = question.getVoter().size();
+
+        // JSON 응답을 위해 Map 사용
+        Map<String, Object> response = new HashMap<>();
+        response.put("voteCount", voteCount);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+
+}
 
     private QuestionDTO toDTO(Question question) {
         QuestionDTO dto = new QuestionDTO();
